@@ -1,20 +1,20 @@
 <script>
   export let rank = ''; // Card rank (e.g., 'A', '2', '3', ..., 'K')
   export let suit = ''; // Card suit (e.g., 'hearts', 'diamonds', 'clubs', 'spades')
-  export let isFaceUp = false; // Whether the card is face-up or face-down
+  export let isFaceDown = true; // Whether the card is face-up or face-down
   function flipCard() {
-    isFaceUp = !isFaceUp;
+    isFaceDown = !isFaceDown;
   }
 </script>
 
 <button
     onclick={()=>flipCard()}
   class="w-20 h-32 border rounded-lg flex justify-center items-center bg-white shadow-lg transition-all duration-300 ease-in-out"
-  class:flip={isFaceUp} 
-  class:bg-gray-200={!isFaceUp}
-  class:border-gray-700={!isFaceUp}
+  class:flip={isFaceDown} 
+  class:bg-gray-200={!isFaceDown}
+  class:border-gray-700={!isFaceDown}
 >
-  {#if isFaceUp}
+  {#if isFaceDown}
     <div class="bg-blue-500 w-full h-full rounded-lg"></div>
   {:else}   
     <div class="text-xl font-bold">
